@@ -107,62 +107,38 @@ function SignUp() {
     };
 
     return (
-        <div className="signup-container" style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: '100%',
-            width: '100%',
-            alignItems: 'center',
-        }}>
-
-        {/* STARS */}
-        {/* <div className="star-container">
-                {stars.map((star) => (
-                    <img
-                        key={star.id}
-                        src={star.type === 'wide' ? starwide : starsmall}
-                        alt="Star"
-                        className="star-signup"
-                        style={{
-                            position: 'absolute',
-                            top: star.top,
-                            left: star.left,
-                            zIndex: '-3',
-                            transform: 'translate(-50%, -50%)',
-                            
-                        }}
-                    />
-                ))}
-            </div> */}
-
-        {/* TITLE SECTION */}
-        <div className='title'>
+        <div className="loginpage">
+            {/* TITLE SECTION */}
+            <div className="auth-page">
                 <img
                     className="corner-image"
                     src={titleshootingstars} 
                     alt="Corner Decoration"
                 />
                 
-                <Typography variant="h2" className="title">
+                <Typography variant="h2" className="auth-title">
                     SIGN UP
                 </Typography>
-
-
             </div>
-        <form onSubmit={handleSubmit} className="form">
-            <div className="input-row" style={{ display: "flex", justifyContent: "space-between" }}>
-                <div className="input-group half-width" style={{ width: "48%" }}>
-                    <input className="input" required type="text" id="firstName" onChange={handleFirstNameChange} value={firstName} />
-                    <label className="label" htmlFor="firstName">First Name</label>
-                </div>
-                <div className="input-group half-width" style={{ width: "48%" }}>
-                    <input className="input" required type="text" id="lastName" onChange={handleLastNameChange} value={lastName} />
-                    <label className="label" htmlFor="lastName">Last Name</label>
-                </div>
+
+            {/* IMAGE DECOR */}
+            <div className="image-container">
+                <img className="starwide-left" src={starsmall} alt="Star Left" />
+                <img className="starsmall-left" src={starwide} alt="Star Left" />
             </div>
-            <br />
+
+            <form onSubmit={handleSubmit} className="form" style={{ width: formWidth }}>
+                <div className="input-row" style={{ display: "flex", justifyContent: "space-between", width: "80%" }}>
+                    <div className="input-group half-width" style={{ width: "48%" }}>
+                        <input className="input" required type="text" id="firstName" onChange={handleFirstNameChange} value={firstName} />
+                        <label className="label" htmlFor="firstName">First Name</label>
+                    </div>
+                    <div className="input-group half-width" style={{ width: "48%" }}>
+                        <input className="input" required type="text" id="lastName" onChange={handleLastNameChange} value={lastName} />
+                        <label className="label" htmlFor="lastName">Last Name</label>
+                    </div>
+                </div>
+                <br />
                 <div className="input-group">
                     <input className="input" required type="text" id="email" onChange={handleEmailChange} value={email} />
                     <label className="label" htmlFor="email">Email</label>
@@ -179,12 +155,44 @@ function SignUp() {
                 </div>
                 <br />
                 
-                <br />
-
                 <button className="submit-button" type="submit">
                     SIGN UP
                 </button>
                 
+                <div style={{ 
+                    marginTop: '20px', 
+                    textAlign: 'center', 
+                    padding: '15px',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    width: '80%',
+                    maxWidth: '500px'
+                }}>
+                    <Typography
+                        sx={{
+                            fontFamily: 'DM-Sans',
+                            fontSize: '16px',
+                            color: 'white',
+                            textAlign: 'center',
+                            textShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
+                        }}
+                    >
+                        <strong>IMPORTANT:</strong> You must register on both this website AND through{' '}
+                        <Link 
+                            to="/register" 
+                            style={{
+                                color: '#ADD8E6',
+                                textDecoration: 'underline',
+                                textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            official Slate registration
+                        </Link>
+                        {' '}to participate in SAIL 2025.
+                    </Typography>
+                </div>
             </form>
         </div>
     );
